@@ -1,0 +1,6 @@
+{
+  "name":"titir","version":"0.1.0","description":"TiTir desktop plugin shell","main":"dist/main/index.js","private":true,
+  "scripts":{"build:main":"tsc -p tsconfig.json","build:renderer":"vite build","build":"pnpm run build:main && pnpm run build:renderer","start":"pnpm run build && electron .","audit:deps":"pnpm outdated; pnpm audit --audit-level high"},
+  "dependencies":{"yauzl":"^3.2.0","zod":"^4.4.3","react":"^19.2.0","react-dom":"^19.2.0"},
+  "devDependencies":{"electron":"^38.2.0","typescript":"^5.9.3","vite":"^6.3.0","@vitejs/plugin-react":"^5.0.0","@types/node":"^22.0.0","@types/yauzl":"^2.10.3","@types/react":"^19.2.0","@types/react-dom":"^19.2.0"}
+}

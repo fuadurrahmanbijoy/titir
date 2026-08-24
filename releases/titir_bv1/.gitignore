@@ -1,0 +1,4 @@
+node_modules
+dist
+plugins/installed/*
+!plugins/installed/.gitkeep
