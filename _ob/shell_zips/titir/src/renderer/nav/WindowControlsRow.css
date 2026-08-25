@@ -1,0 +1,56 @@
+.window-controls-row {
+  height: var(--titlebar-height);
+  width: var(--nav-width);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  /* Owns the window's entire drag region — click-and-hold anywhere here
+     except the three buttons moves the window (native OS drag, §16). */
+  -webkit-app-region: drag;
+}
+
+.traffic-lights {
+  display: flex;
+  flex-direction: column; /* vertical, not macOS's native horizontal row */
+  align-items: center;
+  gap: 4px;
+  -webkit-app-region: no-drag;
+}
+
+.traffic-light {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: none;
+  border-radius: var(--borderRadiusCircular);
+  background: var(--tl-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--durationFast) var(--curveEasyEase),
+    transform var(--durationFast) var(--curveEasyEase);
+}
+
+.traffic-light:hover {
+  background: var(--tl-hover);
+  transform: scale(1.08);
+}
+
+.traffic-light:active {
+  transform: scale(0.94);
+}
+
+.traffic-light__glyph {
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--durationFaster) var(--curveEasyEase);
+}
+
+/* macOS reveals all three glyphs together when the cluster is hovered. */
+.traffic-lights:hover .traffic-light__glyph {
+  opacity: 1;
+}

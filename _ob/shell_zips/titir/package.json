@@ -1,0 +1,37 @@
+{
+  "name": "titir",
+  "version": "0.1.0",
+  "description": "A thin desktop host for independently-built plugins with real system capability",
+  "main": "dist/main/index.js",
+  "private": true,
+  "scripts": {
+    "build:main": "tsc -p tsconfig.json",
+    "build:renderer": "vite build",
+    "build": "npm run build:main && npm run build:renderer",
+    "dev:renderer": "vite",
+    "start": "npm run build && electron .",
+    "typecheck:renderer": "tsc -p tsconfig.renderer.json",
+    "audit:deps": "npm outdated; npm audit --audit-level=high"
+  },
+  "dependencies": {
+    "yauzl": "^3.1.3",
+    "zod": "^3.23.8",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@fluentui/react-icons": "^2.0.245"
+  },
+  "devDependencies": {
+    "electron": "^32.0.0",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.6",
+    "@vitejs/plugin-react": "^4.3.1",
+    "@types/node": "^22.5.4",
+    "@types/yauzl": "^2.10.3",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0"
+  },
+  "allowScripts": {
+    "electron@32.3.3": true,
+    "esbuild@0.21.5": true
+  }
+}

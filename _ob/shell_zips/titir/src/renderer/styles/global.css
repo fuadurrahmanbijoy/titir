@@ -1,0 +1,48 @@
+@import "./theme.css";
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--fontFamilyBase);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--colorNeutralForeground1);
+  background: var(--colorNeutralBackground1);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden; /* the shell window itself never scrolls as a whole */
+  user-select: none; /* chrome, not a document — matches Teams desktop */
+}
+
+button {
+  font-family: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--colorNeutralStroke1);
+  border-radius: var(--borderRadiusCircular);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Respect reduced motion everywhere a transition exists (§10.4, §13). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+  }
+}

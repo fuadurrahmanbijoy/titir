@@ -1,0 +1,17 @@
+.nav-column {
+  width: var(--nav-width);
+  min-width: var(--nav-width);
+  max-width: var(--nav-width);
+  height: 100%;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  /* §3.7 — the nav rail uses colorNeutralBackgroundStatic: fixed dark,
+     regardless of the app's own theme. This shell is light-mode only,
+     but the rail itself is still the one deliberately-dark surface,
+     exactly like the real Teams desktop client. */
+  background: var(--colorNeutralBackgroundStatic);
+  /* Vertical stacking only — scrolling only if the icon list itself
+     overflows vertically (handled inside .plugin-list, not here). */
+  overflow: hidden;
+}

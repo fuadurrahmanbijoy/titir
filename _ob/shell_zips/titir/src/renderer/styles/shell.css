@@ -1,0 +1,130 @@
+@import "../styles/theme.css";
+
+.shell {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: var(--colorNeutralBackground1);
+}
+
+.content-area {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  background: var(--colorNeutralBackground1);
+}
+
+/* ---- Idle / empty state -------------------------------------------- */
+/* The one and only piece of "content" the shell renderer itself ever
+   draws inside the content area — shown until the person clicks a
+   plugin icon for the first time (§11). */
+.idle-state {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacingM);
+  text-align: center;
+  padding: var(--spacingXXL);
+  opacity: 0;
+  animation: idle-fade-in var(--durationGentle) var(--curveDecelerateMid) forwards;
+}
+
+@keyframes idle-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.idle-state__mark {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.idle-state__title {
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 600; /* Subtitle2 — Semibold, never Bold/Regular for headings */
+  color: var(--colorNeutralForeground1);
+}
+
+.idle-state__subtitle {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--colorNeutralForeground3);
+  max-width: 280px;
+}
+
+/* ---- Crash toast ------------------------------------------------------ */
+.crash-toast {
+  position: absolute;
+  bottom: var(--spacingXL);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--spacingM);
+  background: var(--colorNeutralBackground1);
+  border: 1px solid var(--colorNeutralStroke1);
+  border-radius: var(--borderRadiusLarge);
+  box-shadow: var(--shadow16);
+  padding: var(--spacingS) var(--spacingM);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--colorNeutralForeground1);
+  animation: toast-in var(--durationSlow) var(--curveDecelerateMid) forwards;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.crash-toast__relaunch {
+  background: var(--colorBrandBackground);
+  color: var(--colorNeutralForegroundOnBrand);
+  border: none;
+  border-radius: var(--borderRadiusMedium);
+  padding: var(--spacingXS) var(--spacingM);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color var(--durationFast) var(--curveEasyEase);
+}
+.crash-toast__relaunch:hover {
+  background: var(--colorBrandBackgroundHover);
+}
+.crash-toast__relaunch:active {
+  background: var(--colorBrandBackgroundPressed);
+}
+
+.crash-toast__dismiss {
+  background: transparent;
+  border: none;
+  color: var(--colorNeutralForeground3);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 var(--spacingXXS);
+  transition: color var(--durationFast) var(--curveEasyEase);
+}
+.crash-toast__dismiss:hover {
+  color: var(--colorNeutralForeground1);
+}

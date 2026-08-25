@@ -1,0 +1,70 @@
+.plugin-list {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacingS);
+  padding: var(--spacingM) 0;
+}
+
+.nav-item {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border: none;
+  background: transparent;
+  border-radius: var(--borderRadiusMedium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--colorNeutralForegroundStaticInvertedMuted);
+  transition: background-color var(--durationFast) var(--curveEasyEase),
+    color var(--durationFaster) var(--curveEasyEase);
+}
+
+.nav-item:hover {
+  background: var(--navItemHover);
+  color: var(--colorNeutralForegroundStaticInverted);
+}
+
+.nav-item:active {
+  background: var(--navItemPressed);
+}
+
+.nav-item svg {
+  width: 24px;
+  height: 24px;
+  transition: color var(--durationFaster) var(--curveEasyEase);
+}
+
+.nav-item__emoji {
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* §11.1 — the single most recognizable Teams chrome detail: a 2–3px
+   brand-colored bar flush to the inside edge of the active icon. */
+.nav-item__indicator {
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%) scaleY(0);
+  width: 3px;
+  height: 22px;
+  border-radius: var(--borderRadiusCircular);
+  background: var(--colorBrandForegroundOnDark);
+  transition: transform var(--durationFaster) var(--curveEasyEase);
+  transform-origin: center;
+}
+
+.nav-item--active {
+  color: var(--colorBrandForegroundOnDark);
+}
+
+.nav-item--active .nav-item__indicator {
+  transform: translateY(-50%) scaleY(1);
+}

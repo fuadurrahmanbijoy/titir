@@ -1,0 +1,9 @@
+{
+  "id": "titir.hub",
+  "name": "Hub",
+  "version": "0.1.0",
+  "entry": "index.html",
+  "preload": "preload.js",
+  "icon": "\u2699",
+  "summary": "Install, uninstall, enable, and reorder plugins."
+}

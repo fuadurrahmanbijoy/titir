@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hub</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="root">
+      <header class="hub-header">
+        <h1>Plugins</h1>
+        <button id="install-btn" class="primary-btn">Install plugin…</button>
+      </header>
+      <ul id="plugin-list" class="plugin-list"></ul>
+      <p id="empty-state" class="empty-state" hidden>
+        No plugins installed yet. Install a <code>.titirpkg</code> file to get started.
+      </p>
+    </div>
+    <script src="renderer.js"></script>
+  </body>
+</html>

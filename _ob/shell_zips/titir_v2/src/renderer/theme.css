@@ -1,0 +1,129 @@
+/*
+ * Fluent 2 alias tokens, hand-declared as CSS custom properties.
+ * These are the *only* place a raw hex/px/cubic-bezier value may appear
+ * (design_guide_v1 §0, §2) — every component file below references a
+ * var(--token), never a literal value, so theme switching and future
+ * remapping never touch component code.
+ */
+
+:root {
+  /* §3.1 Neutral backgrounds (light) */
+  --colorNeutralBackground1: #ffffff;
+  --colorNeutralBackground2: #fafafa;
+  --colorNeutralBackground3: #f5f5f5;
+  --colorNeutralBackground4: #f0f0f0;
+  --colorNeutralBackgroundStatic: #333333;
+  --colorSubtleBackgroundHover: #f5f5f5;
+
+  /* §3.2 Neutral foreground */
+  --colorNeutralForeground1: #242424;
+  --colorNeutralForeground2: #424242;
+  --colorNeutralForeground3: #616161;
+  --colorNeutralForeground4: #707070;
+  --colorNeutralForegroundDisabled: #bdbdbd;
+  --colorNeutralForegroundOnBrand: #ffffff;
+
+  /* §3.3 Stroke */
+  --colorNeutralStroke1: #d1d1d1;
+  --colorNeutralStroke2: #e0e0e0;
+  --colorNeutralStrokeAccessible: #616161;
+
+  /* §3.4 Brand */
+  --colorBrandBackground: #0f6cbd;
+  --colorBrandBackgroundHover: #115ea3;
+  --colorBrandBackgroundPressed: #0f548c;
+  --colorBrandForeground1: #0f6cbd;
+  --colorBrandStroke1: #0f6cbd;
+
+  /* §3.5 Status */
+  --colorStatusDangerBackground3: #c50f1f;
+  --colorStatusSuccessBackground3: #107c10;
+  --colorStatusWarningBackground3: #f7630c;
+
+  /* §4 Typography */
+  --fontFamilyBase: "Segoe UI", -apple-system, "San Francisco Pro", Roboto, sans-serif;
+  --fontFamilyMonospace: "Cascadia Code", Consolas, monospace;
+
+  /* §6.1 Spacing (4px scale) */
+  --spacingXXS: 2px;
+  --spacingXS: 4px;
+  --spacingSNudge: 6px;
+  --spacingS: 8px;
+  --spacingMNudge: 10px;
+  --spacingM: 12px;
+  --spacingL: 16px;
+  --spacingXL: 20px;
+  --spacingXXL: 24px;
+  --spacingXXXL: 32px;
+
+  /* §7 Corner radius / stroke width */
+  --borderRadiusSmall: 2px;
+  --borderRadiusMedium: 4px;
+  --borderRadiusLarge: 6px;
+  --borderRadiusXLarge: 8px;
+  --borderRadiusCircular: 9999px;
+  --strokeWidthThin: 1px;
+  --strokeWidthThick: 2px;
+
+  /* §8 Elevation */
+  --shadow4: 0 2px 4px rgba(0, 0, 0, 0.14), 0 0 2px rgba(0, 0, 0, 0.12);
+  --shadow8: 0 4px 8px rgba(0, 0, 0, 0.14), 0 0 2px rgba(0, 0, 0, 0.12);
+  --shadow16: 0 8px 16px rgba(0, 0, 0, 0.14), 0 0 2px rgba(0, 0, 0, 0.12);
+  --shadow28: 0 14px 28px rgba(0, 0, 0, 0.24), 0 0 8px rgba(0, 0, 0, 0.2);
+
+  /* §10 Motion */
+  --durationFaster: 100ms;
+  --durationFast: 150ms;
+  --durationNormal: 200ms;
+  --curveEasyEase: cubic-bezier(0.33, 0, 0.67, 1);
+  --curveDecelerateMid: cubic-bezier(0, 0, 0, 1);
+  --curveAccelerateMid: cubic-bezier(1, 0, 1, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --colorNeutralBackground1: #292929;
+    --colorNeutralBackground2: #1f1f1f;
+    --colorNeutralBackground3: #141414;
+    --colorNeutralBackground4: #0a0a0a;
+    --colorNeutralBackgroundStatic: #383838;
+    --colorSubtleBackgroundHover: #3d3d3d;
+
+    --colorNeutralForeground1: #ffffff;
+    --colorNeutralForeground2: #d6d6d6;
+    --colorNeutralForeground3: #adadad;
+    --colorNeutralForeground4: #999999;
+    --colorNeutralForegroundDisabled: #5c5c5c;
+
+    --colorNeutralStroke1: #666666;
+    --colorNeutralStroke2: #444444;
+    --colorNeutralStrokeAccessible: #adadad;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --durationFaster: 1ms;
+    --durationFast: 1ms;
+    --durationNormal: 1ms;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--fontFamilyBase);
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--colorNeutralForeground1);
+  background: var(--colorNeutralBackground1);
+}
